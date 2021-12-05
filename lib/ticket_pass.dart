@@ -7,7 +7,7 @@ import 'package:ticket_pass_package/dash_separator.dart';
 class TicketPass extends StatefulWidget {
   const TicketPass({
     this.width = 300,
-    @required this.child,
+    required this.child,
     this.color = Colors.white,
     this.height = 200,
     this.elevation = 1.0,
@@ -74,8 +74,8 @@ class TicketPass extends StatefulWidget {
   final double separatorHeight;
   final Text expansionTitle;
   final Text ticketTitle;
-  final Widget expansionChild;
-  final List<String> purchaserList;
+  final Widget? expansionChild;
+  final List<String>? purchaserList;
 
   @override
   _TicketPassState createState() => _TicketPassState();
@@ -125,7 +125,7 @@ class _TicketPassState extends State<TicketPass> {
               ),
               widget.expansionTitle,
               widget.expansionChild != null
-                  ? widget.expansionChild
+                  ? widget.expansionChild!
                   : Expanded(
                       child: Container(
                         child: Padding(
@@ -138,7 +138,7 @@ class _TicketPassState extends State<TicketPass> {
                               child: ListView(
                                 controller: _scrollController,
                                 children: widget.purchaserList != null
-                                    ? widget.purchaserList
+                                    ? widget.purchaserList!
                                         .map<Widget>((String name) {
                                         return Container(
                                           child: Padding(
